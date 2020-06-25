@@ -1,3 +1,28 @@
+## Developer's Note [25th June 2020]
+A few changes have been made specifically on this release to achieve the following:
+
+1. Build Tensorflow 1.15 with CUDA 10.2 from source successfully.
+2. Run Object Detection API which has not been migrated to Tensorflow 2 as of this writing.
+
+The changes made is to avoid the error below and thus myself from puking blood out of anger:
+
+https://github.com/tensorflow/tensorflow/issues/34429
+
+After doing the fix given in the issue above, if you still encounter an issue similar to this:
+
+![](error_20200625.png)
+
+Please refer to this issue to solve it:
+
+https://github.com/tensorflow/tensorflow/issues/21518
+
+The solution is basically to do the following:
+```
+pip install keras_applications==1.0.4 --no-deps
+pip install keras_preprocessing==1.0.2 --no-deps
+pip install h5py==2.8.0
+```
+
 <div align="center">
   <img src="https://www.tensorflow.org/images/tf_logo_social.png">
 </div>
